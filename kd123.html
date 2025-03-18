@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Page</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .id-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 30px;
+            width: 350px;
+            transition: transform 0.3s ease;
+        }
+        .id-card:hover {
+            transform: scale(1.05);
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #4facfe;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+        }
+        .role {
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .contact-info, .additional-info {
+            background-color: #4facfe;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .social-icons {
+            margin-top: 15px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #4facfe;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="id-card">
+        <label for="file-input">
+            <img src="kd222.jpg" alt="Profile Picture" class="profile-pic" id="profile-pic">
+        </label>
+        <input type="file" id="file-input" accept="image/*">
+        <div class="name">Kiran Navnath Waghmode</div>
+        <div class="role">CSE student (Web Developer)</div>
+        <div class="contact-info">
+            Email: <a href="mailto:john.doe@example.com">waghmodekiran001@gmail.com</a>
+        </div>
+        <div class="additional-info">
+            <p>Location: Kolhapur</p>
+            <p>Phone: 9921001104</p>
+        </div>
+        <div class="social-icons">
+            <a href="#">&#xf09a;</a>  <!-- Facebook Icon -->
+            <a href="#l">&#xf099;</a>  <!-- Twitter Icon -->
+            <a href="#">&#xf16d;</a>  <!-- Instagram Icon --></div>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const profilePic = document.getElementById('profile-pic');
+
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profilePic.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
+
